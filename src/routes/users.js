@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user.model')
 
+router.get('/',async (req, res) => {
+    res.json({mensaje: "Bienvenido al servidor de IntelliWeight"});
+    return
+});
+
 router.post('/users/register', async (req, res) => {
     const { user, email, password } = req.body
     const tempUser = await User.findOne({usuario: user});
