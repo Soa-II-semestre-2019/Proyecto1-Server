@@ -15,8 +15,9 @@ router.post("/userDevice/findUser", async (req, res) => {
 //Crea un nuevo documento con el nombre del usuario y la informacion del dispositivo
 router.post("/userDevice", async (req, res) => {
   const { user, idWeight, itemType, weightLimit } = req.body;
-  const dispositivo = await Dispositivo.findOne({ idDispositivo: idWeight });
-  if (dispositivo !== null) {
+  const dispositivo = await Dispositivo.findOne({ topic1: idWeight });
+  const dispositivo2 = await Dispositivo.findOne({topic2: idWeight});
+  if (dispositivo !== null || dispositivo2 !== null) {
     const userDevice = new UserDevice();
     userDevice.usuario = user;
     userDevice.idWeight = idWeight;
