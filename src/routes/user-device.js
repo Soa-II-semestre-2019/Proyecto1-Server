@@ -8,8 +8,8 @@ const Dispositivo = require("../models/device.model");
 router.post("/userDevice/findUser", async (req, res) => {
   const { user } = req.body;
   query = { usuario: user };
-  const value = await UserDevice.findOne(query);
-  res.json({ mensaje: value });
+  const value = await UserDevice.find(query);
+  res.json(value);
 });
 
 //Crea un nuevo documento con el nombre del usuario y la informacion del dispositivo
